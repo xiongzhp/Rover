@@ -1,0 +1,8 @@
+# dependency directory
+node_modules
+
+# npm debug logs
+npm-debug.log
+
+# mac os x dot files
+**/.DS_Store
