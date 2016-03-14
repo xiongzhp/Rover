@@ -1,5 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	h1= title
+	p #{title} is an intelligent voice-controlled home assistant.
+	br
+	a.button(href='#', onclick='listenCommand()') Listen
+	a#command #[span#int Press the button and then speak to #{title}] #[span#final]
+
+block scripts
+	script(src='https://code.jquery.com/jquery-2.2.1.min.js', integrity='sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=', crossorigin='anonymous')
+	script(src='javascripts/jarvis.js')
