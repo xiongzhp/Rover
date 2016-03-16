@@ -1,11 +1,30 @@
 extends layout
 
 block content
-	h1= title
-	p #{title} is an intelligent voice-controlled home assistant.
-	br
-	a.button(href='#', onclick='listenCommand()') Listen
-	a#command #[span#int Press the button and then speak to #{title}] #[span#final]
+	.row
+		.col-xs-12
+			h1= title
+			p #{title} is an intelligent voice-controlled home assistant.
+
+	a(href='#', onclick='listenCommand()')
+		.row
+			.col-xs-3.listen
+				p#listen Listen
+			.col-xs-9.command
+				p #[span#int Press the button and then speak to #{title}] #[span#final]
+
+	.row.top
+		.col-xs.left.door
+			h3 Door
+		.col-xs.right.temp
+			h3 Temperature
+			p#temp
+
+	.row.bottom
+		.col-xs.left.music
+			h3 Music
+		.col-xs.right.alarm
+			h3 Alarm
 
 block scripts
 	script(src='https://code.jquery.com/jquery-2.2.1.min.js', integrity='sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=', crossorigin='anonymous')

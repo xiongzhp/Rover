@@ -5,6 +5,9 @@ var listening = false;
 var canSpeak = false;
 var canListen = false;
 
+// default color is white
+var color = '#fff';
+
 // speech synthesis
 if ('speechSynthesis' in window) {
 	console.log('J.A.R.V.I.S. can speak')
@@ -37,6 +40,7 @@ if ('webkitSpeechRecognition' in window) {
 	recognition.onstart = function () {
 		// display listening
 		console.log('Listening...');
+		$('#listen').text('Listening...');
 	}
 
 	// during the recognition
@@ -57,17 +61,29 @@ if ('webkitSpeechRecognition' in window) {
 	// if unable to recognize
 	recognition.onerror = function (event) {
 		console.log('ERROR');
+		$('.button').text('ERROR');
 	}
 
 	// after listening to the user, print the text
 	recognition.onend = function () {
 		console.log(transcript);
-		$('.button').text('Listen');
 
-		// do something with transcript!
+		$('#listen').text('Listen');
+
+		var data = { 'query' : transcript }
+
+		$.ajax({
+			url: '/api/v1/intent',
+			method: 'POST',
+			data: data,
+			success: processInfo,
+			error: function () {
+				console.log('J.A.R.V.I.S. API ERROR');
+			}
+		});
 
 		listening = false;
-		speak(transcript);
+		// speak(transcript);
 	}
 
 } else {
@@ -89,8 +105,6 @@ function listenCommand () {
 		return;
 	}
 
-	$('.button').text('Listening...');
-
 	transcript = '';
 	listening = true;
 	recognition.start();
@@ -103,3 +117,55 @@ function speak(text) {
 		synthesis.speak(phrase);
 	}
 }
+
+function processInfo (response) {
+	var intent = response.intent;
+	var entities = response.entities;
+
+	switch(intent) {
+		case 'door':
+			operateDoor(entities);
+			break;
+		case 'temperature':
+			changeTemp(entities);
+			break;
+	}
+
+	console.log(JSON.stringify(response))
+}
+
+function operateDoor (entities) {
+	if (entities) {
+		var state = entities['on_off'];
+	}
+
+	if (state) {
+		var value = state[0].value;
+	
+		if (value === 'on') {
+			$('.door').css('background-color', '#fff');
+			$('.door').css('color', '#000');
+			speak('Opening the door');
+		} else {
+			$('.door').css('background-color', '#000');
+			$('.door').css('color', '#fff');
+			speak('Closing the door');
+		}
+	}
+}
+
+function changeTemp (entities) {
+	if (entities) {
+		var state = entities['temperature'];
+	}
+
+	if (state) {
+		var value = state[0].value;
+		console.log(value);
+		$('#temp').text(value);
+		speak('Changing the temperature to ' + value + ' degrees');
+	}
+}
+
+
+
