@@ -13,18 +13,12 @@ block content
 			.col-xs-9.command
 				p #[span#int Press the button and then speak to #{title}] #[span#final]
 
-	.row.top
+	.row.top.bottom
 		.col-xs.left.door
-			h3 Door
-		.col-xs.right.temp
-			h3 Temperature
-			p#temp
-
-	.row.bottom
-		.col-xs.left.music
-			h3 Music
-		.col-xs.right.alarm
-			h3 Alarm
+			h2 Door
+		.col-xs.right
+			h2 Temperature
+			h1#temp
 
 block scripts
 	script(src='https://code.jquery.com/jquery-2.2.1.min.js', integrity='sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=', crossorigin='anonymous')
