@@ -7,5 +7,5 @@ npm-debug.log
 # mac os x dot files
 **/.DS_Store
 
-# configuration files
-config/*
+# configuration file
+config/witai.js

@@ -5,9 +5,6 @@ var listening = false;
 var canSpeak = false;
 var canListen = false;
 
-// default color is white
-var color = '#fff';
-
 // speech synthesis
 if ('speechSynthesis' in window) {
 	console.log('J.A.R.V.I.S. can speak')
