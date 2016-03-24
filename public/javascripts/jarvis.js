@@ -111,7 +111,7 @@ function listenCommand () {
 }
 
 // make the browser speak
-function speak(text) {
+function speak (text) {
 	if (canSpeak && recognition.lang === 'en-US') {
 		var phrase = new SpeechSynthesisUtterance(text);
 		synthesis.speak(phrase);
@@ -166,6 +166,3 @@ function changeTemp (entities) {
 		speak('Changing the temperature to ' + value + ' degrees');
 	}
 }
-
-
-
