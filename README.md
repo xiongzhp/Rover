@@ -1,8 +1,8 @@
-# J.A.R.V.I.S. Voice-controlled Smart Home Assistant
+# Rover Smart Car Assistant
 
-This repository was developed for the Terrapin Hackers hacktorial by Sean Bae
+This repository was developed for the TechCrunch Hackathon 2016 by Erik Xiong
 
-### High-Level Instructions
+###  Instructions
 1) Clone the repository
 ```bash
 git clone https://github.com/SeanBae/Jarvis.git
@@ -10,8 +10,9 @@ git clone https://github.com/SeanBae/Jarvis.git
 
 2) Install NPM dependencies
 ```bash
-cd Jarvis
+cd Rover
 npm install
+node bin/www
 ```
 
 3) Create and train a Wit.ai instance

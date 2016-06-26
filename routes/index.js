@@ -5,7 +5,7 @@ var ACCESS_TOKEN = require('../config/witai');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('index', { title: 'J.A.R.V.I.S.' });
+	res.render('index', { title: 'Rover' });
 });
 
 router.post('/api/v1/intent', function(req, res) {

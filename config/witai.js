@@ -1,2 +1,2 @@
 // access token for Wit.ai
-module.exports = 'D5BT6PB5PS6YVTVLISZSZ7BM7WK72DXR';
+module.exports = '4AXHWYJ3KX3BJSTTUOZ6UZYVX7TDYHWE';

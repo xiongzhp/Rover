@@ -8,10 +8,17 @@ a {
 	text-decoration: none;
 }
 
+img {
+	width: 100%;
+	height: auto;
+}
+.col-xs-12 img {
+	width: auto;
+}
 /* listen button */
 .listen {
-	border: 3px solid #000;
-	background-color: #000;
+	border: 3px solid #9D0711;
+	background-color: #9D0711;
 	color: #fff;
 	text-align: center;
 }
